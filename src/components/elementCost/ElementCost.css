@@ -1,0 +1,319 @@
+.element-COST {
+    background-color: #f8f8f2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .element-COST .div {
+    background-color: #f8f8f2;
+    border: 0px none;
+    height: 842px;
+    position: relative;
+    width: 595px;
+  }
+  
+  .element-COST .text-wrapper {
+    color: #000000;
+    font-family: "Sneak-Medium", Helvetica;
+    font-size: 14px;
+    font-weight: 500;
+    height: 23px;
+    left: 38px;
+    letter-spacing: 0;
+    line-height: 19px;
+    position: absolute;
+    top: 38px;
+    width: 492px;
+  }
+  
+  .element-COST .group {
+    height: 60px;
+    left: 46px;
+    position: absolute;
+    top: 120px;
+    width: 511px;
+  }
+  
+  .element-COST .este-a-o-disfrutaste {
+    color: transparent;
+    font-family: "Teodor-Light", Helvetica;
+    font-size: 12px;
+    font-weight: 300;
+    left: 115px;
+    letter-spacing: 0;
+    line-height: 17px;
+    position: absolute;
+    top: 13px;
+    width: 276px;
+  }
+  
+  .element-COST .span {
+    color: #000000;
+  }
+  
+  .element-COST .text-wrapper-2 {
+    color: #6fe074;
+  }
+  
+  .element-COST .valor-a-adido {
+    color: #020202;
+    font-family: "Sneak-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 16.5px;
+    position: absolute;
+    text-align: right;
+    top: 13px;
+    width: 97px;
+  }
+  
+  .element-COST .line {
+    height: 48px;
+    left: 106px;
+    position: absolute;
+    top: 6px;
+    width: 1px;
+  }
+  
+  .element-COST .element-d-as {
+    color: #6fe0742e;
+    font-family: "Sneak-Medium", Helvetica;
+    font-size: 48px;
+    font-weight: 500;
+    left: 444px;
+    letter-spacing: 0;
+    line-height: 26.9px;
+    position: absolute;
+    text-align: right;
+    top: 0;
+  }
+  
+  .element-COST .text-wrapper-3 {
+    color: #6fe0742e;
+    font-family: "Sneak-Medium", Helvetica;
+    font-size: 48px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 26.9px;
+  }
+  
+  .element-COST .text-wrapper-4 {
+    font-size: 31.2px;
+  }
+  
+  .element-COST .group-2 {
+    height: 54px;
+    left: 25px;
+    position: absolute;
+    top: 356px;
+    width: 532px;
+  }
+  
+  .element-COST .inicialmente-el {
+    color: transparent;
+    font-family: "Teodor-Light", Helvetica;
+    font-size: 12px;
+    font-weight: 300;
+    height: 50px;
+    left: 136px;
+    letter-spacing: 0;
+    line-height: 17px;
+    position: absolute;
+    top: 0;
+    width: 283px;
+  }
+  
+  .element-COST .tu-balance-anual-en {
+    color: #020202;
+    font-family: "Sneak-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 16.5px;
+    position: absolute;
+    text-align: right;
+    top: 7px;
+    width: 118px;
+  }
+  
+  .element-COST .img {
+    height: 48px;
+    left: 127px;
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+  
+  .element-COST .element-EURO {
+    color: #6fe0742e;
+    font-family: "Sneak-Medium", Helvetica;
+    font-size: 26px;
+    font-weight: 500;
+    left: 445px;
+    letter-spacing: 0;
+    line-height: 25px;
+    position: absolute;
+    text-align: right;
+    top: 3px;
+  }
+  
+  .element-COST .text-wrapper-5 {
+    color: #6fe0742e;
+    font-family: "Sneak-Medium", Helvetica;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 25px;
+  }
+  
+  .element-COST .text-wrapper-6 {
+    font-size: 12px;
+  }
+  
+  .element-COST .text-wrapper-7 {
+    font-size: 25px;
+  }
+  
+  .element-COST .group-3 {
+    height: 67px;
+    left: 46px;
+    position: absolute;
+    top: 468px;
+    width: 511px;
+  }
+  
+  .element-COST .p {
+    color: transparent;
+    font-family: "Teodor-Light", Helvetica;
+    font-size: 12px;
+    font-weight: 300;
+    left: 115px;
+    letter-spacing: 0;
+    line-height: 17px;
+    position: absolute;
+    top: 0;
+    width: 283px;
+  }
+  
+  .element-COST .text-wrapper-8 {
+    color: #020202;
+    font-family: "Sneak-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    height: 34px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 16.5px;
+    position: absolute;
+    text-align: right;
+    top: 7px;
+    width: 97px;
+  }
+  
+  .element-COST .line-2 {
+    height: 67px;
+    left: 106px;
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+  
+  .element-COST .element-EURO-2 {
+    color: #6fe0742e;
+    font-family: "Sneak-Medium", Helvetica;
+    font-size: 44px;
+    font-weight: 500;
+    left: 420px;
+    letter-spacing: 0;
+    line-height: 25px;
+    position: absolute;
+    text-align: right;
+    top: 7px;
+  }
+  
+  .element-COST .text-wrapper-9 {
+    color: #6fe0742e;
+    font-family: "Sneak-Medium", Helvetica;
+    font-size: 44px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 25px;
+  }
+  
+  .element-COST .group-4 {
+    height: 101px;
+    left: 46px;
+    position: absolute;
+    top: 593px;
+    width: 511px;
+  }
+  
+  .element-COST .line-3 {
+    height: 101px;
+    left: 106px;
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+  
+  .element-COST .text-wrapper-10 {
+    color: #6fe0742e;
+    font-family: "Sneak-Medium", Helvetica;
+    font-size: 35px;
+    font-weight: 500;
+    left: 413px;
+    letter-spacing: 0;
+    line-height: 35px;
+    position: absolute;
+    text-align: right;
+    top: 35px;
+    width: 92px;
+  }
+  
+  .element-COST .group-5 {
+    height: 60px;
+    left: 46px;
+    position: absolute;
+    top: 238px;
+    width: 511px;
+  }
+  
+  .element-COST .este-a-o-tus-gastos {
+    color: transparent;
+    font-family: "Teodor-Light", Helvetica;
+    font-size: 12px;
+    font-weight: 300;
+    left: 115px;
+    letter-spacing: 0;
+    line-height: 17px;
+    position: absolute;
+    top: 3px;
+    width: 283px;
+  }
+  
+  .element-COST .line-4 {
+    height: 55px;
+    left: 106px;
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+  
+  .element-COST .element-EURO-3 {
+    color: #6fe0742e;
+    font-family: "Sneak-Medium", Helvetica;
+    font-size: 44px;
+    font-weight: 500;
+    left: 421px;
+    letter-spacing: 0;
+    line-height: 25px;
+    position: absolute;
+    text-align: right;
+    top: 3px;
+  }
+  

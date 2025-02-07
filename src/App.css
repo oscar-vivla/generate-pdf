@@ -1,0 +1,178 @@
+/* App.css */
+.upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.print-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 10px 20px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background-color: #333;
+}
+
+@media print {
+  .print-button {
+    display: none;
+  }
+  .element-COST, .maintenance-cost {
+    page-break-after: always; /* Fuerza salto de página después de cada componente */
+  }
+}
+
+/* General Container Styles */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Upload Container */
+.upload-container {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.upload-container input {
+  width: 100%;
+}
+
+/* Select All Section */
+.select-all {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.select-all input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.btn-generate-all {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-generate-all:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Reports List */
+.reports-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Report Card */
+.report-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.report-select {
+  margin-right: 15px;
+}
+
+.report-info {
+  flex-grow: 1;
+}
+
+.report-info h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.report-info p {
+  margin: 0;
+  color: #666;
+}
+
+.report-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Buttons */
+.btn-generate,
+.btn-view,
+.btn-download {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-generate {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-view {
+  background-color: #2196F3;
+  color: white;
+}
+
+.btn-download {
+  background-color: #FF9800;
+  color: white;
+}
+
+.btn-generate:hover,
+.btn-view:hover,
+.btn-download:hover {
+  opacity: 0.9;
+}
+
+/* Loader */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
