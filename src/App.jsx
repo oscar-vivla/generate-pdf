@@ -41,18 +41,26 @@ const App = () => {
             type="file"
             accept=".xlsx,.xls"
             onChange={(e) => handleFileUpload(e.target.files[0])}
+            id="file-upload"
           />
+          <label htmlFor="file-upload">
+            Subir archivo Excel
+          </label>
         </div>
       ) : (
         <div>
           <div className="select-all">
-            <input
-              type="checkbox"
-              checked={selectedRows.every(Boolean)}
-              onChange={handleSelectAll}
-              id="select-all-checkbox"
-            />
-            <label htmlFor="select-all-checkbox">Seleccionar todos</label>
+            <div className="select-all-left">
+              <div className="checkbox-wrapper">
+                <input
+                  type="checkbox"
+                  checked={selectedRows.every(Boolean)}
+                  onChange={handleSelectAll}
+                  id="select-all-checkbox"
+                />
+              </div>
+              <label htmlFor="select-all-checkbox">Seleccionar todos</label>
+            </div>
             <button
               onClick={handleGenerateAndDownloadPDFs}
               disabled={!selectedRows.some(Boolean)}
@@ -64,17 +72,20 @@ const App = () => {
           <div className="reports-list">
             {data.map((rowData, index) => (
               <div key={index} className="report-card">
-                <div className="report-select">
-                  <input
-                    type="checkbox"
-                    checked={selectedRows[index]}
-                    onChange={() => handleRowSelect(index)}
-                  />
+                <div className="report-header">
+                  <div className="checkbox-wrapper">
+                    <input
+                      type="checkbox"
+                      checked={selectedRows[index]}
+                      onChange={() => handleRowSelect(index)}
+                    />
+                  </div>
+                  <div className="report-info">
+                    <h3>Informe {index + 1}</h3>
+                    <p>Fecha: {rowData.fechaAdquisicion}</p>
+                  </div>
                 </div>
-                <div className="report-info">
-                  <h3>Informe {index + 1}</h3>
-                  <p>Fecha: {rowData.fechaAdquisicion}</p>
-                </div>
+
                 <div className="report-actions">
                   {!pdfPreviews[index] ? (
                     <button
