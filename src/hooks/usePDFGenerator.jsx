@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { PDFDocument } from 'pdf-lib';
 import html2canvas from 'html2canvas';
@@ -8,73 +8,95 @@ import { MaintenanCost } from '../components/maintenanceCost/MaintenanceCost';
 export const usePDFGenerator = () => {
     const [isLoading, setIsLoading] = useState(false);
 
-    const generatePDF = async (rowData, index) => {
-        const pdfDoc = await PDFDocument.create();
 
-        // Primera página - ElementCost
-        const page1 = pdfDoc.addPage();
-        const { width, height } = page1.getSize();
-        const tempDiv1 = document.createElement('div');
-        document.body.appendChild(tempDiv1);
+    const waitForRender = useCallback((element) => {
+        return new Promise(resolve => {
+            // Creamos un observer que mira cambios en el DOM
+            const observer = new MutationObserver((mutations, obs) => {
 
-        const root1 = ReactDOM.createRoot(tempDiv1);
-        root1.render(<ElementCost data={rowData} />);
+                if (document.readyState === 'complete') {
+                    obs.disconnect();
 
-        await new Promise(resolve => setTimeout(resolve, 300));
+                    setTimeout(resolve, 50);
+                }
+            });
 
-        const canvas1 = await html2canvas(tempDiv1, {
-            scale: 2,
-            useCORS: true,
-            logging: false
+
+            observer.observe(element, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                characterData: true
+            });
+
+            if (document.readyState === 'complete') {
+                observer.disconnect();
+                setTimeout(resolve, 50);
+            }
         });
+    }, []);
 
-        root1.unmount();
-        document.body.removeChild(tempDiv1);
+    const generatePage = useCallback(async (Component, props = {}) => {
+        const tempDiv = document.createElement('div');
+        document.body.appendChild(tempDiv);
+        const root = ReactDOM.createRoot(tempDiv);
 
-        // Segunda página - MaintenanCost
-        const page2 = pdfDoc.addPage();
-        const tempDiv2 = document.createElement('div');
-        document.body.appendChild(tempDiv2);
+        try {
+            root.render(<Component {...props} />);
 
-        const root2 = ReactDOM.createRoot(tempDiv2);
-        root2.render(<MaintenanCost />);
+            await waitForRender(tempDiv);
 
-        await new Promise(resolve => setTimeout(resolve, 300));
+            const canvas = await html2canvas(tempDiv, {
+                scale: 2,
+                useCORS: true,
+                logging: false
+            });
 
-        const canvas2 = await html2canvas(tempDiv2, {
-            scale: 2,
-            useCORS: true,
-            logging: false
-        });
+            return canvas;
+        } finally {
+            root.unmount();
+            document.body.removeChild(tempDiv);
+        }
+    }, [waitForRender]);
 
-        root2.unmount();
-        document.body.removeChild(tempDiv2);
+    const generatePDF = useCallback(async (rowData, index) => {
 
-        // Insertar imágenes en páginas
-        const img1 = await pdfDoc.embedPng(canvas1.toDataURL('image/png'));
-        const img2 = await pdfDoc.embedPng(canvas2.toDataURL('image/png'));
+        try {
+            const pdfDoc = await PDFDocument.create();
+            // Generar páginas
+            const canvas1 = await generatePage(ElementCost, { data: rowData });
+            const canvas2 = await generatePage(MaintenanCost);
 
-        page1.drawImage(img1, {
-            x: 0,
-            y: 0,
-            width: width,
-            height: height
-        });
+            // Añadir páginas al PDF
+            const pages = [
+                { canvas: canvas1, title: 'ElementCost' },
+                { canvas: canvas2, title: 'MaintenanceCost' }
+            ];
 
-        page2.drawImage(img2, {
-            x: 0,
-            y: 0,
-            width: width,
-            height: height
-        });
+            for (const { canvas, title } of pages) {
+                const page = pdfDoc.addPage();
+                const { width, height } = page.getSize();
+                const img = await pdfDoc.embedPng(canvas.toDataURL('image/png'));
 
-        // Guardar PDF
-        const pdfBytes = await pdfDoc.save();
-        const blob = new Blob([pdfBytes], { type: 'application/pdf' });
-        const pdfUrl = URL.createObjectURL(blob);
+                page.drawImage(img, {
+                    x: 0,
+                    y: 0,
+                    width,
+                    height
+                });
+            }
 
-        return { pdfUrl, blob };
-    };
+            const pdfBytes = await pdfDoc.save();
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            const pdfUrl = URL.createObjectURL(blob);
+
+            return { pdfUrl, blob };
+        } catch (error) {
+            console.error(`Error generating PDF for index ${index}:`, error);
+            throw error;
+        }
+    }, [generatePage]);
+
 
     const downloadPDF = (pdfUrl, index) => {
         const link = document.createElement('a');
@@ -87,21 +109,35 @@ export const usePDFGenerator = () => {
         window.open(pdfUrl, '_blank');
     };
 
-    const generateAndDownloadPDFs = async (data, selectedRows, pdfPreviews, setPdfPreviews) => {
+    const generateAndDownloadPDFs = useCallback(async (data, selectedRows, pdfPreviews, setPdfPreviews) => {
         setIsLoading(true);
         const newPreviews = [...pdfPreviews];
+        const batchSize = 3;
 
-        for (let i = 0; i < data.length; i++) {
-            if (selectedRows[i]) {
-                const { pdfUrl } = await generatePDF(data[i], i);
-                newPreviews[i] = pdfUrl;
-                downloadPDF(pdfUrl, i);
+        try {
+            const selectedData = data
+                .map((item, index) => ({ data: item, index }))
+                .filter((_, index) => selectedRows[index]);
+
+            for (let i = 0; i < selectedData.length; i += batchSize) {
+                const batch = selectedData.slice(i, i + batchSize);
+                await Promise.all(
+                    batch.map(async ({ data, index }) => {
+                        const { pdfUrl } = await generatePDF(data, index);
+                        newPreviews[index] = pdfUrl;
+                        downloadPDF(pdfUrl, index);
+                    })
+                );
             }
-        }
 
-        setPdfPreviews(newPreviews);
-        setIsLoading(false);
-    };
+            setPdfPreviews(newPreviews);
+        } catch (error) {
+            console.error('Error al generar PDFs:', error);
+            throw error;
+        } finally {
+            setIsLoading(false);
+        }
+    }, [generatePDF, downloadPDF]);
 
     return {
         isLoading,
