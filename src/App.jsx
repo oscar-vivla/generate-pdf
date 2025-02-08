@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
-import * as XLSX from 'xlsx';
+import React from 'react';
 import { usePDFGenerator } from './hooks/usePDFGenerator';
+import { useExcelData } from './hooks/useDataExcel';
 import './App.css';
 
 const App = () => {
-  const [data, setData] = useState(null);
-  const [pdfPreviews, setPdfPreviews] = useState([]);
-  const [selectedRows, setSelectedRows] = useState([]);
+  const {
+    data,
+    pdfPreviews,
+    setPdfPreviews,
+    selectedRows,
+    handleFileUpload,
+    handleSelectAll,
+    handleRowSelect
+  } = useExcelData();
 
   const {
     isLoading,
@@ -16,34 +22,11 @@ const App = () => {
     generateAndDownloadPDFs
   } = usePDFGenerator();
 
-  const handleFileUpload = async (file) => {
-    try {
-      const buffer = await file.arrayBuffer();
-      const workbook = XLSX.read(buffer);
-      const sheet = workbook.Sheets[workbook.SheetNames[0]];
-      const excelData = XLSX.utils.sheet_to_json(sheet);
-      setData(excelData);
-      setPdfPreviews(new Array(excelData.length).fill(null));
-      setSelectedRows(new Array(excelData.length).fill(false));
-    } catch (error) {
-      console.error('Error al cargar el Excel:', error);
-    }
-  };
 
   const handleGenerateAndDownloadPDFs = () => {
     generateAndDownloadPDFs(data, selectedRows, pdfPreviews, setPdfPreviews);
   };
 
-
-  const handleSelectAll = (e) => {
-    setSelectedRows(new Array(data.length).fill(e.target.checked));
-  };
-
-  const handleRowSelect = (index) => {
-    const newSelectedRows = [...selectedRows];
-    newSelectedRows[index] = !newSelectedRows[index];
-    setSelectedRows(newSelectedRows);
-  };
 
   return (
     <div className="container">
