@@ -81,8 +81,8 @@ const App = () => {
                     />
                   </div>
                   <div className="report-info">
-                    <h3>Informe {index + 1}</h3>
-                    <p>Fecha: {rowData.fechaAdquisicion}</p>
+                    <h3>{rowData.casa}</h3>
+                    <p>Propietario: {rowData.propietario}</p>
                   </div>
                 </div>
 
