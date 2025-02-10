@@ -179,12 +179,13 @@
 }
 
 .btn-view {
-  background-color: #3b82f6;
-  color: white;
+  background-color: white;
+  border: 1px solid #02020280;
+  color: #020202;
 }
 
 .btn-download {
-  background-color: #f59e0b;
+  background-color: #020202;
   color: white;
 }
 
