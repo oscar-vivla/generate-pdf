@@ -51,9 +51,9 @@ const App = () => {
               Subir archivo Excel
             </label>
           </div>
-          {/* <Cover data='Casa Nin' /> */}
+          {/* <Cover data='Casa Nin' />
           <ElementCost data={data ?? {}} />
-          <MaintenanceCost />
+          <MaintenanceCost /> */}
         </>
       ) : (
         <div>
