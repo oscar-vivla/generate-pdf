@@ -1,0 +1,20 @@
+.upload-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    border: 2px dashed #e5e7eb;
+    border-radius: 0.5rem;
+  }
+  
+  .upload-container input[type="file"] {
+    display: none;
+  }
+  
+  .upload-container label {
+    padding: 0.5rem 1rem;
+    background: #2563eb;
+    color: white;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }

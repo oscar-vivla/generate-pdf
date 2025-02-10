@@ -1,133 +1,42 @@
 import React from 'react';
 import { usePDFGenerator } from './hooks/usePDFGenerator';
 import { useExcelData } from './hooks/useDataExcel';
+import { ReportList } from './components/reportList/ReportList';
+import { FileUpload } from './components/fileUpload/FileUpload';
 import './App.css';
-import MaintenanceCost from './components/maintenanceCost/maintenanceCost';
-import Cover from './components/cover/Cover';
-import { ElementCost } from './components/elementCost/ElementCost';
 
 const App = () => {
-  const {
-    data,
-    pdfPreviews,
-    setPdfPreviews,
-    selectedRows,
-    handleFileUpload,
-    handleSelectAll,
-    handleRowSelect
-  } = useExcelData();
+  const excelData = useExcelData();
+  const pdfGenerator = usePDFGenerator();
 
-  const {
-    isLoading,
-    generatePDF,
-    downloadPDF,
-    openPDFInNewTab,
-    generateAndDownloadPDFs
-  } = usePDFGenerator();
-
-
-  const handleGenerateAndDownloadPDFs = () => {
-    generateAndDownloadPDFs(data, selectedRows, pdfPreviews, setPdfPreviews);
+  const handleGeneratePDF = async (rowData, index) => {
+    const { pdfUrl } = await pdfGenerator.generatePDF(rowData, index);
+    const newPreviews = [...excelData.pdfPreviews];
+    newPreviews[index] = pdfUrl;
+    excelData.setPdfPreviews(newPreviews);
   };
 
+  if (pdfGenerator.isLoading) {
+    return <div className="loader" />;
+  }
+
+  if (!excelData.data) {
+    return <FileUpload onUpload={excelData.handleFileUpload} />;
+  }
 
   return (
     <div className="container">
-      {isLoading && (
-        <div className="loader-overlay">
-          <div className="loader"></div>
-        </div>
-      )}
-      {!data ? (
-        <>
-          <div className="upload-container">
-            <input
-              type="file"
-              accept=".xlsx,.xls"
-              onChange={(e) => handleFileUpload(e.target.files[0])}
-              id="file-upload"
-            />
-            <label htmlFor="file-upload">
-              Subir archivo Excel
-            </label>
-          </div>
-          {/* <Cover data='Casa Nin' />
-          <ElementCost data={data ?? {}} />
-          <MaintenanceCost /> */}
-        </>
-      ) : (
-        <div>
-          <div className="select-all">
-            <div className="select-all-left">
-              <div className="checkbox-wrapper">
-                <input
-                  type="checkbox"
-                  checked={selectedRows.every(Boolean)}
-                  onChange={handleSelectAll}
-                  id="select-all-checkbox"
-                />
-              </div>
-              <label htmlFor="select-all-checkbox">Seleccionar todos</label>
-            </div>
-            <button
-              onClick={handleGenerateAndDownloadPDFs}
-              disabled={!selectedRows.some(Boolean)}
-              className="btn-generate-all"
-            >
-              Generar y Descargar PDFs
-            </button>
-          </div>
-          <div className="reports-list">
-            {data.map((rowData, index) => (
-              <div key={index} className="report-card">
-                <div className="report-header">
-                  <div className="checkbox-wrapper">
-                    <input
-                      type="checkbox"
-                      checked={selectedRows[index]}
-                      onChange={() => handleRowSelect(index)}
-                    />
-                  </div>
-                  <div className="report-info">
-                    <h3>{rowData.casa}</h3>
-                    <p>Propietario: {rowData.propietario}</p>
-                  </div>
-                </div>
-
-                <div className="report-actions">
-                  {!pdfPreviews[index] ? (
-                    <button
-                      onClick={() => generatePDF(rowData, index).then(({ pdfUrl }) => {
-                        const newPreviews = [...pdfPreviews];
-                        newPreviews[index] = pdfUrl;
-                        setPdfPreviews(newPreviews);
-                      })}
-                      className="btn-generate"
-                    >
-                      Generar PDF
-                    </button>
-                  ) : (
-                    <>
-                      <button
-                        onClick={() => openPDFInNewTab(pdfPreviews[index])}
-                        className="btn-view"
-                      >
-                        Ver PDF
-                      </button>
-                      <button
-                        onClick={() => downloadPDF(pdfPreviews[index], index)}
-                        className="btn-download"
-                      >
-                        Descargar
-                      </button>
-                    </>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      <ReportList
+        data={excelData.data}
+        selectedRows={excelData.selectedRows}
+        pdfPreviews={excelData.pdfPreviews}
+        onSelect={excelData.handleRowSelect}
+        onSelectAll={excelData.handleSelectAll}
+        onGenerateAll={pdfGenerator.generateAndDownloadPDFs}
+        onGeneratePDF={handleGeneratePDF}
+        onViewPDF={pdfGenerator.openPDFInNewTab}
+        onDownloadPDF={pdfGenerator.downloadPDF}
+      />
     </div>
   );
 };
