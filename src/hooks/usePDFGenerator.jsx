@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { PDFDocument } from 'pdf-lib';
 import html2canvas from 'html2canvas';
 import { ElementCost } from '../components/elementCost/ElementCost';
-import { MaintenanCost } from '../components/maintenanceCost/MaintenanceCost';
+import MaintenanceCost from '../components/maintenanceCost/maintenanceCost';
+import Cover from '../components/cover/Cover';
 
 export const usePDFGenerator = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -64,11 +65,13 @@ export const usePDFGenerator = () => {
         try {
             const pdfDoc = await PDFDocument.create();
             // Generar páginas
+            const cover = await generatePage(Cover, { data: rowData });
             const canvas1 = await generatePage(ElementCost, { data: rowData });
-            const canvas2 = await generatePage(MaintenanCost);
+            const canvas2 = await generatePage(MaintenanceCost);
 
             // Añadir páginas al PDF
             const pages = [
+                { canvas: cover, title: 'Cover' },
                 { canvas: canvas1, title: 'ElementCost' },
                 { canvas: canvas2, title: 'MaintenanceCost' }
             ];

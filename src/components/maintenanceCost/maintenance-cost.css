@@ -1,701 +1,126 @@
-.maintenance-cost {
-    background-color: #f8f8f2;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .maintenance-cost .div {
-    background-color: #f8f8f2;
-    border: 0px none;
-    height: 842px;
-    position: relative;
-    width: 595px;
-  }
-  
-  .maintenance-cost .overlap {
-    height: 626px;
-    left: 29px;
-    position: absolute;
-    top: 112px;
-    width: 543px;
-  }
-  
-  .maintenance-cost .overlap-group {
-    height: 626px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 543px;
-  }
-  
-  .maintenance-cost .rectangle {
-    background-color: #ffa15e21;
-    height: 34px;
-    left: 1px;
-    position: absolute;
-    top: 231px;
-    width: 542px;
-  }
-  
-  .maintenance-cost .text-wrapper {
-    color: #000000;
-    font-family: "Teodor-Regular", Helvetica;
-    font-size: 12px;
-    font-weight: 400;
-    left: 344px;
-    letter-spacing: 0;
-    line-height: 27px;
-    position: absolute;
-    text-align: right;
-    top: 0;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .text-wrapper-2 {
-    color: #000000;
-    font-family: "Teodor-Regular", Helvetica;
-    font-size: 12px;
-    font-weight: 400;
-    left: 409px;
-    letter-spacing: 0;
-    line-height: 27px;
-    position: absolute;
-    text-align: right;
-    top: 0;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .text-wrapper-3 {
-    color: #000000;
-    font-family: "Teodor-Regular", Helvetica;
-    font-size: 12px;
-    font-weight: 400;
-    left: 468px;
-    letter-spacing: 0;
-    line-height: 27px;
-    position: absolute;
-    text-align: right;
-    top: 1px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .text-wrapper-4 {
-    color: #000000;
-    font-family: "Teodor-Regular", Helvetica;
-    font-size: 12px;
-    font-weight: 400;
-    left: 7px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 242px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .line {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 60px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .img {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 94px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .line-2 {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 128px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .line-3 {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 162px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .line-4 {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 196px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .line-5 {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 230px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .line-6 {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 26px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .element {
-    color: #000000;
-    font-family: "Sneak-Regular", Helvetica;
-    font-size: 12px;
-    font-weight: 400;
-    left: 336px;
-    letter-spacing: 0;
-    line-height: 34px;
-    position: absolute;
-    text-align: right;
-    top: 27px;
-  }
-  
-  .maintenance-cost .span {
-    color: #000000;
-    font-family: "Sneak-Regular", Helvetica;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 34px;
-  }
-  
-  .maintenance-cost .text-wrapper-5 {
-    font-family: "Sneak-Medium", Helvetica;
-    font-weight: 500;
-  }
-  
-  .maintenance-cost .p {
-    color: #000000;
-    font-family: "Sneak-Regular", Helvetica;
-    font-size: 12px;
-    font-weight: 400;
-    left: 429px;
-    letter-spacing: 0;
-    line-height: 34px;
-    position: absolute;
-    text-align: right;
-    top: 27px;
-  }
-  
-  .maintenance-cost .element-2 {
-    color: #000000;
-    font-family: "Sneak-Regular", Helvetica;
-    font-size: 12px;
-    font-weight: 400;
-    left: 523px;
-    letter-spacing: 0;
-    line-height: 34px;
-    position: absolute;
-    text-align: right;
-    top: 28px;
-  }
-  
-  .maintenance-cost .line-7 {
-    height: 588px;
-    left: 383px;
-    object-fit: cover;
-    position: absolute;
-    top: 3px;
-    width: 1px;
-  }
-  
-  .maintenance-cost .line-8 {
-    height: 588px;
-    left: 461px;
-    object-fit: cover;
-    position: absolute;
-    top: 3px;
-    width: 1px;
-  }
-  
-  .maintenance-cost .rectangle-2 {
-    background-color: #ffa15e21;
-    height: 34px;
-    left: 0;
-    position: absolute;
-    top: 591px;
-    width: 542px;
-  }
-  
-  .maintenance-cost .text-wrapper-6 {
-    color: #000000;
-    font-family: "Teodor-Regular", Helvetica;
-    font-size: 12px;
-    font-weight: 400;
-    left: 7px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 602px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .line-9 {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 284px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .line-10 {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 318px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .line-11 {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 352px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .line-12 {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 420px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .line-13 {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 454px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .line-14 {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 488px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .line-15 {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 522px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .line-16 {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 556px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .line-17 {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 590px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .line-18 {
-    height: 1px;
-    left: 7px;
-    position: absolute;
-    top: 624px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .line-19 {
-    height: 1px;
-    left: 9px;
-    position: absolute;
-    top: 386px;
-    width: 534px;
-  }
-  
-  .maintenance-cost .element-3 {
-    color: #000000;
-    font-family: "Sneak-Regular", Helvetica;
-    font-size: 12px;
-    font-weight: 400;
-    left: 332px;
-    letter-spacing: 0;
-    line-height: 34px;
-    position: absolute;
-    text-align: right;
-    top: 286px;
-  }
-  
-  .maintenance-cost .element-4 {
-    color: #000000;
-    font-family: "Sneak-Regular", Helvetica;
-    font-size: 12px;
-    font-weight: 400;
-    left: 419px;
-    letter-spacing: 0;
-    line-height: 34px;
-    position: absolute;
-    text-align: right;
-    top: 285px;
-  }
-  
-  .maintenance-cost .element-5 {
-    color: #000000;
-    font-family: "Sneak-Regular", Helvetica;
-    font-size: 12px;
-    font-weight: 400;
-    left: 513px;
-    letter-spacing: 0;
-    line-height: 34px;
-    position: absolute;
-    text-align: right;
-    top: 286px;
-  }
-  
-  .maintenance-cost .text-wrapper-7 {
-    color: #000000;
-    font-family: "Teodor-Light", Helvetica;
-    font-size: 12px;
-    font-weight: 300;
-    left: 38px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 39px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .text-wrapper-8 {
-    color: #000000;
-    font-family: "Teodor-Light", Helvetica;
-    font-size: 12px;
-    font-weight: 300;
-    left: 38px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 73px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .text-wrapper-9 {
-    color: #000000;
-    font-family: "Teodor-Light", Helvetica;
-    font-size: 12px;
-    font-weight: 300;
-    left: 38px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 107px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .text-wrapper-10 {
-    color: #000000;
-    font-family: "Teodor-Light", Helvetica;
-    font-size: 12px;
-    font-weight: 300;
-    left: 38px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 141px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .text-wrapper-11 {
-    color: #000000;
-    font-family: "Teodor-Light", Helvetica;
-    font-size: 12px;
-    font-weight: 300;
-    left: 38px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 175px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .text-wrapper-12 {
-    color: #000000;
-    font-family: "Teodor-Light", Helvetica;
-    font-size: 12px;
-    font-weight: 300;
-    left: 38px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 209px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .rectangle-3 {
-    height: 22px;
-    left: 7px;
-    object-fit: cover;
-    position: absolute;
-    top: 33px;
-    width: 24px;
-  }
-  
-  .maintenance-cost .rectangle-4 {
-    height: 22px;
-    left: 7px;
-    object-fit: cover;
-    position: absolute;
-    top: 67px;
-    width: 24px;
-  }
-  
-  .maintenance-cost .rectangle-5 {
-    height: 22px;
-    left: 7px;
-    object-fit: cover;
-    position: absolute;
-    top: 101px;
-    width: 24px;
-  }
-  
-  .maintenance-cost .rectangle-6 {
-    height: 22px;
-    left: 7px;
-    object-fit: cover;
-    position: absolute;
-    top: 135px;
-    width: 24px;
-  }
-  
-  .maintenance-cost .rectangle-7 {
-    height: 22px;
-    left: 7px;
-    position: absolute;
-    top: 169px;
-    width: 24px;
-  }
-  
-  .maintenance-cost .rectangle-8 {
-    height: 22px;
-    left: 7px;
-    object-fit: cover;
-    position: absolute;
-    top: 203px;
-    width: 24px;
-  }
-  
-  .maintenance-cost .text-wrapper-13 {
-    color: #000000;
-    font-family: "Teodor-Light", Helvetica;
-    font-size: 12px;
-    font-weight: 300;
-    left: 38px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 297px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .text-wrapper-14 {
-    color: #000000;
-    font-family: "Teodor-Light", Helvetica;
-    font-size: 12px;
-    font-weight: 300;
-    left: 38px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 331px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .text-wrapper-15 {
-    color: #000000;
-    font-family: "Teodor-Light", Helvetica;
-    font-size: 12px;
-    font-weight: 300;
-    left: 38px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 365px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .text-wrapper-16 {
-    color: #000000;
-    font-family: "Teodor-Light", Helvetica;
-    font-size: 12px;
-    font-weight: 300;
-    left: 38px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 399px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .text-wrapper-17 {
-    color: #000000;
-    font-family: "Teodor-Light", Helvetica;
-    font-size: 12px;
-    font-weight: 300;
-    left: 38px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 433px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .text-wrapper-18 {
-    color: #000000;
-    font-family: "Teodor-Light", Helvetica;
-    font-size: 12px;
-    font-weight: 300;
-    left: 38px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 467px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .text-wrapper-19 {
-    color: #000000;
-    font-family: "Teodor-Regular", Helvetica;
-    font-size: 12px;
-    font-weight: 400;
-    left: 38px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 499px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .text-wrapper-20 {
-    color: #000000;
-    font-family: "Teodor-Regular", Helvetica;
-    font-size: 12px;
-    font-weight: 400;
-    left: 38px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 534px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .text-wrapper-21 {
-    color: #000000;
-    font-family: "Teodor-Regular", Helvetica;
-    font-size: 12px;
-    font-weight: 400;
-    left: 38px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 568px;
-    white-space: nowrap;
-  }
-  
-  .maintenance-cost .rectangle-9 {
-    height: 22px;
-    left: 7px;
-    object-fit: cover;
-    position: absolute;
-    top: 291px;
-    width: 24px;
-  }
-  
-  .maintenance-cost .rectangle-10 {
-    height: 22px;
-    left: 7px;
-    object-fit: cover;
-    position: absolute;
-    top: 325px;
-    width: 24px;
-  }
-  
-  .maintenance-cost .rectangle-11 {
-    height: 22px;
-    left: 7px;
-    object-fit: cover;
-    position: absolute;
-    top: 359px;
-    width: 24px;
-  }
-  
-  .maintenance-cost .rectangle-12 {
-    height: 22px;
-    left: 7px;
-    object-fit: cover;
-    position: absolute;
-    top: 393px;
-    width: 24px;
-  }
-  
-  .maintenance-cost .rectangle-13 {
-    height: 22px;
-    left: 7px;
-    object-fit: cover;
-    position: absolute;
-    top: 427px;
-    width: 24px;
-  }
-  
-  .maintenance-cost .rectangle-14 {
-    height: 22px;
-    left: 7px;
-    object-fit: cover;
-    position: absolute;
-    top: 461px;
-    width: 24px;
-  }
-  
-  .maintenance-cost .gastos-de {
-    color: #000000;
-    font-family: "Sneak-Medium", Helvetica;
-    font-size: 14px;
-    font-weight: 500;
-    height: 23px;
-    left: 38px;
-    letter-spacing: 0;
-    line-height: 19px;
-    position: absolute;
-    top: 38px;
-    width: 492px;
-  }
-  
-  .maintenance-cost .text-wrapper-22 {
-    color: #000000;
-    font-family: "Teodor-Light", Helvetica;
-    font-size: 12px;
-    font-weight: 300;
-    left: 36px;
-    letter-spacing: 0;
-    line-height: 12px;
-    position: absolute;
-    top: 753px;
-    white-space: nowrap;
-  }
-  
+.maintenance-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f8f8f2;
+  padding: 1rem;
+  font-family: Teodor, sans-serif;
+}
+
+.maintenance-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.maintenance-title {
+  font-size: 14px;
+  line-height: 19px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: Sneak, sans-serif;
+  margin-bottom: 2rem;
+}
+
+.columns-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 12px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.items-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cost-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.06);
+  font-size: 12px;
+}
+
+.item-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 300;
+}
+
+.item-icon {
+  width: 24px;
+  height: 22px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.item-value {
+  text-align: right;
+  font-family: Sneak, sans-serif;
+}
+
+.subtotal-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(255, 162, 95, 0.13);
+  margin: 1rem 0;
+  font-weight: 500;
+}
+
+.subtotal-label {
+  font-weight: normal;
+}
+
+.subtotal-value {
+  text-align: right;
+  font-family: Sneak, sans-serif;
+}
+
+.additional-items {
+  margin-top: 1rem;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+.total-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(255, 162, 95, 0.13);
+  margin: 1rem 0;
+  font-weight: 500;
+}
+
+.total-label {
+  font-weight: normal;
+}
+
+.total-value {
+  text-align: right;
+  font-family: Sneak, sans-serif;
+}
+
+.footer-note {
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 300;
+  margin-top: 1rem;
+}
+
+/* Utility classes */
+.text-right {
+  text-align: right;
+}

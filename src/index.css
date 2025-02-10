@@ -12,4 +12,34 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media print {
+  @page {
+    size: A4;
+    margin: 20mm;
+  }
+}
+
+@font-face {
+  font-family: 'Sneak Regular';
+  src: url('./fonts/Sneak/Sneak-Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Sneak Medium';
+  src: url('./fonts/Sneak/Sneak-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Teodor Light';
+  src: url('./fonts/Teodor/Teodor-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Teodor Regular';
+  src: url('./fonts/Teodor/Teodor-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Sharp Grotesk Sm Bold 12';
+  src: url('./fonts/Sharp/SharpGroteskSmBold12-Regular.ttf') format('truetype');
+}
+
 

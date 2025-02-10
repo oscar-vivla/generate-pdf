@@ -1,0 +1,69 @@
+/* Contenedor principal */
+.cost {
+    /* margin-inline: 50px; */
+    background-color: #f8f8f2;
+    position: relative;
+    page-break-after: always;
+}
+
+.portada {
+    /* width: 100%; */
+    height: 100%;
+    position: relative;
+    background-color: #f8f8f2;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Logo */
+.logo-icon {
+    width: 102px; /* 17.14% de 595px */
+    margin-bottom: 40px;
+}
+
+/* Imagen principal */
+.img-icon {
+    /* width: 492px;
+    height: 632px; */
+    border-radius: 3px;
+    object-fit: cover;
+    /* margin: 0 auto; */
+}
+
+/* Pie de página */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding: 0 40px;
+}
+
+.modelo {
+    font-weight: 300;
+    font-family: Teodor;
+}
+
+.informe-anual {
+    text-transform: uppercase;
+    font-family: Sneak;
+    text-align: right;
+}
+
+/* CSS específico para impresión */
+@media print {
+    .cost {
+        box-shadow: none;
+    }
+
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}

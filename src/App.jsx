@@ -2,6 +2,9 @@ import React from 'react';
 import { usePDFGenerator } from './hooks/usePDFGenerator';
 import { useExcelData } from './hooks/useDataExcel';
 import './App.css';
+import MaintenanceCost from './components/maintenanceCost/maintenanceCost';
+import Cover from './components/cover/Cover';
+import { ElementCost } from './components/elementCost/ElementCost';
 
 const App = () => {
   const {
@@ -36,17 +39,22 @@ const App = () => {
         </div>
       )}
       {!data ? (
-        <div className="upload-container">
-          <input
-            type="file"
-            accept=".xlsx,.xls"
-            onChange={(e) => handleFileUpload(e.target.files[0])}
-            id="file-upload"
-          />
-          <label htmlFor="file-upload">
-            Subir archivo Excel
-          </label>
-        </div>
+        <>
+          <div className="upload-container">
+            <input
+              type="file"
+              accept=".xlsx,.xls"
+              onChange={(e) => handleFileUpload(e.target.files[0])}
+              id="file-upload"
+            />
+            <label htmlFor="file-upload">
+              Subir archivo Excel
+            </label>
+          </div>
+          {/* <Cover data='Casa Nin' /> */}
+          <ElementCost data={data ?? {}} />
+          <MaintenanceCost />
+        </>
       ) : (
         <div>
           <div className="select-all">

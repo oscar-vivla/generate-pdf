@@ -1,159 +1,209 @@
-import React from "react";
+import React from 'react';
 import tableLineDivisor from '../../assets/table-line-divisor.svg';
-import electricity from "../../assets/electricidad.jpg";
-import gasImg from "../../assets/gas.jpg";
-import waterImg from "../../assets/agua.jpg";
-import wifiImg from "../../assets/internet.jpg";
-import alarmImg from "../../assets/alarma.jpg";
-import othersImg from "../../assets/otros.jpg";
-import cleaningImg from "../../assets/limpieza.jpg";
-import maintanceImg from "../../assets/mantenimiento.jpg";
-import communityImg from "../../assets/comunidad.jpg";
-import ibiImg from "../../assets/basuras-ibi.jpg";
-import homeInsuraceImg from "../../assets/seguro-hogar.jpg";
-import managementImg from "../../assets/gestoria.jpg";
-import "./maintenance-cost.css";
+import electricityImg from "../../assets/costImages/electricidad.jpg";
+import gasImg from "../../assets/costImages/gas.jpg";
+import waterImg from "../../assets/costImages/agua.jpg";
+import wifiImg from "../../assets/costImages/internet.jpg";
+import alarmImg from "../../assets/costImages/alarma.jpg";
+import othersImg from "../../assets/costImages/otros.jpg";
+import cleaningImg from "../../assets/costImages/limpieza.jpg";
+import maintanceImg from "../../assets/costImages/mantenimiento.jpg";
+import communityImg from "../../assets/costImages/comunidad.jpg";
+import ibiImg from "../../assets/costImages/basuras-ibi.jpg";
+import homeInsuraceImg from "../../assets/costImages/seguro-hogar.jpg";
+import managementImg from "../../assets/costImages/gestoria.jpg";
+import './maintenance-cost.css';
 
-export const MaintenanCost = () => {
-
-    const tableLines = [
-        'line-divider-1',
-        'line-divider-2',
-        'line-divider-3',
-        'line-divider-4',
-        'line-divider-5',
-        'line-divider-6',
-        'line-divider-7',
-        'line-divider-8',
-        'line-divider-9',
-        'line-divider-10'
-    ];
-
+const MaintenanceCost = () => {
     return (
-        <div className="maintenance-cost">
-            <div className="div">
-                <div className="overlap">
-                    <div className="overlap-group">
-                        <div className="rectangle" />
+        <div className="maintenance-container">
+            <div className="maintenance-content">
+                {/* Header */}
+                <h1 className="maintenance-title">
+                    Gastos de mantenimiento - 2023
+                </h1>
 
-                        {/* Headers */}
-                        <div className="text-wrapper">Real</div>
-                        <div className="text-wrapper-2">Fracción</div>
-                        <div className="text-wrapper-3">Fracción/Mes</div>
-                        <div className="text-wrapper-4">Suministros</div>
-
-                        {/* Table Lines */}
-                        {tableLines.map((className, index) => (
-                            <img
-                                key={`table-line-${index}`}
-                                className={className}
-                                alt="Table divider"
-                                src={tableLineDivisor}
-                            />
-                        ))}
-
-                        {/* Content Sections */}
-                        <p className="element">
-                            <span className="span">
-                                794 - 204 229 273
-                                <br />
-                                374{" "}
-                            </span>
-                            <span className="text-wrapper-5">1,873</span>
-                        </p>
-
-                        <p className="p">
-                            <span className="span">
-                                99
-                                <br />
-                                - 25 29 34 47{" "}
-                            </span>
-                            <span className="text-wrapper-5">234</span>
-                        </p>
-
-                        <p className="element-2">
-                            <span className="span">
-                                13 -
-                                <br />
-                                3 4 5 6{" "}
-                            </span>
-                            <span className="text-wrapper-5">31</span>
-                        </p>
-
-                        {/* Totals Section */}
-                        <div className="rectangle-2" />
-                        <div className="text-wrapper-6">Total</div>
-
-                        <p className="element-3">
-                            <span className="span">
-                                3,692
-                                <br />
-                                - 3,181 - 472 968{" "}
-                            </span>
-                            <span className="text-wrapper-5">8,312 3,513 3,458 17,157</span>
-                        </p>
-
-                        <p className="element-4">
-                            <span className="span">
-                                461 - 398
-                                <br />
-                                - 59 121{" "}
-                            </span>
-                            <span className="text-wrapper-5">1,039 439 432 2,145</span>
-                        </p>
-
-                        <p className="element-5">
-                            <span className="span">
-                                62 - 53
-                                <br />
-                                - 8 16{" "}
-                            </span>
-                            <span className="text-wrapper-5">140 59 55 286</span>
-                        </p>
-                    </div>
-
-                    {/* Labels */}
-                    <div className="text-wrapper-7">Electricidad</div>
-                    <div className="text-wrapper-8">Gas</div>
-                    <div className="text-wrapper-9">Agua</div>
-                    <div className="text-wrapper-10">Internet</div>
-                    <div className="text-wrapper-11">Alarma</div>
-                    <div className="text-wrapper-12">Otros</div>
-
-                    {/* Rectangle Images */}
-                    <img className="rectangle-3" alt="Rectangle" src={electricity} />
-                    <img className="rectangle-4" alt="Rectangle" src={gasImg} />
-                    <img className="rectangle-5" alt="Rectangle" src={waterImg} />
-                    <img className="rectangle-6" alt="Rectangle" src={wifiImg} />
-                    <img className="rectangle-7" alt="Rectangle" src={alarmImg} />
-                    <img className="rectangle-8" alt="Rectangle" src={othersImg} />
-
-                    {/* Additional Labels */}
-                    <div className="text-wrapper-13">Limpieza</div>
-                    <div className="text-wrapper-14">Mantenimiento</div>
-                    <div className="text-wrapper-15">Comunidad</div>
-                    <div className="text-wrapper-16">IBI y Basuras (Impuestos)</div>
-                    <div className="text-wrapper-17">Seguro del hogar</div>
-                    <div className="text-wrapper-18">Gestoría</div>
-                    <div className="text-wrapper-19">Comunidad</div>
-                    <div className="text-wrapper-20">Gastos de administracion</div>
-                    <div className="text-wrapper-21">Impuestos propietario</div>
-
-                    {/* Additional Rectangle Images */}
-                    <img className="rectangle-9" alt="Rectangle" src={cleaningImg} />
-                    <img className="rectangle-10" alt="Rectangle" src={maintanceImg} />
-                    <img className="rectangle-11" alt="Rectangle" src={communityImg} />
-                    <img className="rectangle-12" alt="Rectangle" src={ibiImg} />
-                    <img className="rectangle-13" alt="Rectangle" src={homeInsuraceImg} />
-                    <img className="rectangle-14" alt="Rectangle" src={managementImg} />
+                {/* Column Headers */}
+                <div className="columns-header">
+                    <div className="column-item"></div>
+                    <div className="column-item text-right">Real</div>
+                    <div className="column-item text-right">Fracción</div>
+                    <div className="column-item text-right">Fracción/Mes</div>
                 </div>
 
-                {/* Footer */}
-                <p className="gastos-de">GASTOS DE MANTENIMIENTO - 2023</p>
-                <p className="text-wrapper-22">
+                {/* Utilities Section */}
+                <div className="items-section">
+                    <div className="cost-item">
+                        <div className="item-name">
+                            <img src={electricityImg} alt="Electricidad" className="item-icon" />
+                            <span>Electricidad</span>
+                        </div>
+                        <div className="item-value">794</div>
+                        <div className="item-value">99</div>
+                        <div className="item-value">13</div>
+                    </div>
+
+                    <div className="cost-item">
+                        <div className="item-name">
+                            <img src={gasImg} alt="Gas" className="item-icon" />
+                            <span>Gas</span>
+                        </div>
+                        <div className="item-value">-</div>
+                        <div className="item-value">-</div>
+                        <div className="item-value">-</div>
+                    </div>
+
+                    <div className="cost-item">
+                        <div className="item-name">
+                            <img src={waterImg} alt="Agua" className="item-icon" />
+                            <span>Agua</span>
+                        </div>
+                        <div className="item-value">204</div>
+                        <div className="item-value">25</div>
+                        <div className="item-value">3</div>
+                    </div>
+
+                    <div className="cost-item">
+                        <div className="item-name">
+                            <img src={wifiImg} alt="Internet" className="item-icon" />
+                            <span>Internet</span>
+                        </div>
+                        <div className="item-value">229</div>
+                        <div className="item-value">29</div>
+                        <div className="item-value">4</div>
+                    </div>
+
+                    <div className="cost-item">
+                        <div className="item-name">
+                            <img src={alarmImg} alt="Alarma" className="item-icon" />
+                            <span>Alarma</span>
+                        </div>
+                        <div className="item-value">273</div>
+                        <div className="item-value">34</div>
+                        <div className="item-value">5</div>
+                    </div>
+
+                    <div className="cost-item">
+                        <div className="item-name">
+                            <img src={othersImg} alt="Otros" className="item-icon" />
+                            <span>Otros</span>
+                        </div>
+                        <div className="item-value">374</div>
+                        <div className="item-value">47</div>
+                        <div className="item-value">6</div>
+                    </div>
+                </div>
+
+                {/* Supplies Subtotal */}
+                <div className="subtotal-row">
+                    <div className="subtotal-label">Suministros</div>
+                    <div className="subtotal-value">1,873</div>
+                    <div className="subtotal-value">234</div>
+                    <div className="subtotal-value">31</div>
+                </div>
+
+                {/* Maintenance Section */}
+                <div className="items-section">
+                    <div className="cost-item">
+                        <div className="item-name">
+                            <img src={cleaningImg} alt="Limpieza" className="item-icon" />
+                            <span>Limpieza</span>
+                        </div>
+                        <div className="item-value">3,692</div>
+                        <div className="item-value">461</div>
+                        <div className="item-value">62</div>
+                    </div>
+
+                    <div className="cost-item">
+                        <div className="item-name">
+                            <img src={maintanceImg} alt="Mantenimiento" className="item-icon" />
+                            <span>Mantenimiento</span>
+                        </div>
+                        <div className="item-value">-</div>
+                        <div className="item-value">-</div>
+                        <div className="item-value">-</div>
+                    </div>
+
+                    <div className="cost-item">
+                        <div className="item-name">
+                            <img src={communityImg} alt="Comunidad" className="item-icon" />
+                            <span>Comunidad</span>
+                        </div>
+                        <div className="item-value">3,181</div>
+                        <div className="item-value">398</div>
+                        <div className="item-value">53</div>
+                    </div>
+
+                    <div className="cost-item">
+                        <div className="item-name">
+                            <img src={ibiImg} alt="IBI y Basuras" className="item-icon" />
+                            <span>IBI y Basuras (Impuestos)</span>
+                        </div>
+                        <div className="item-value">-</div>
+                        <div className="item-value">-</div>
+                        <div className="item-value">-</div>
+                    </div>
+
+                    <div className="cost-item">
+                        <div className="item-name">
+                            <img src={homeInsuraceImg} alt="Seguro" className="item-icon" />
+                            <span>Seguro del hogar</span>
+                        </div>
+                        <div className="item-value">472</div>
+                        <div className="item-value">59</div>
+                        <div className="item-value">8</div>
+                    </div>
+
+                    <div className="cost-item">
+                        <div className="item-name">
+                            <img src={managementImg} alt="Gestoría" className="item-icon" />
+                            <span>Gestoría</span>
+                        </div>
+                        <div className="item-value">968</div>
+                        <div className="item-value">121</div>
+                        <div className="item-value">16</div>
+                    </div>
+                </div>
+
+                {/* Additional Items */}
+                <div className="additional-items">
+                    <div className="cost-item bold">
+                        <div className="item-name">Comunidad</div>
+                        <div className="item-value">8,312</div>
+                        <div className="item-value">1,039</div>
+                        <div className="item-value">140</div>
+                    </div>
+
+                    <div className="cost-item bold">
+                        <div className="item-name">Gastos de administracion</div>
+                        <div className="item-value">3,513</div>
+                        <div className="item-value">439</div>
+                        <div className="item-value">59</div>
+                    </div>
+
+                    <div className="cost-item bold">
+                        <div className="item-name">Impuestos propietario</div>
+                        <div className="item-value">3,458</div>
+                        <div className="item-value">432</div>
+                        <div className="item-value">55</div>
+                    </div>
+                </div>
+
+                {/* Total Row */}
+                <div className="total-row">
+                    <div className="total-label">Total</div>
+                    <div className="total-value">17,157</div>
+                    <div className="total-value">2,145</div>
+                    <div className="total-value">286</div>
+                </div>
+
+                {/* Footer Note */}
+                <p className="footer-note">
                     La cuota mensual en 2023 por propietario correspondió a 286€
                 </p>
             </div>
         </div>
     );
-}
+};
+
+export default MaintenanceCost;

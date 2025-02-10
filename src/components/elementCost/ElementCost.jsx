@@ -52,7 +52,7 @@ export const ElementCost = ({ data }) => {
 
           <p className="element-d-as">
             <span className="text-wrapper-3">
-              38
+              {diasDisfrutados}
               <br />
             </span>
 
@@ -83,7 +83,7 @@ export const ElementCost = ({ data }) => {
           <img className="img" alt="Line" src={lineDivisor} />
 
           <p className="element-EURO">
-            <span className="text-wrapper-5">5,323</span>
+            <span className="text-wrapper-5">{balanceAjustado}</span>
 
             <span className="text-wrapper-6">
               .4
@@ -100,7 +100,7 @@ export const ElementCost = ({ data }) => {
               Para el próximo año, estimamos que tu cuota mensual será de{" "}
             </span>
 
-            <span className="text-wrapper-2">304 €</span>
+            <span className="text-wrapper-2">{cuotaMensual2024}</span>
 
             <span className="span">
               . Esta cuota la hemos querido ajustar al máximo aumentando
@@ -115,7 +115,7 @@ export const ElementCost = ({ data }) => {
 
           <p className="element-EURO-2">
             <span className="text-wrapper-9">
-              304
+              {valorMercado}
               <br />
             </span>
 
@@ -154,7 +154,7 @@ export const ElementCost = ({ data }) => {
           <p className="este-a-o-tus-gastos">
             <span className="span">Este año, tus gastos mensuales fueron </span>
 
-            <span className="text-wrapper-2">286 €</span>
+            <span className="text-wrapper-2">{gastosMensuales2023}</span>
 
             <span className="span">
               . <br />
@@ -173,7 +173,7 @@ export const ElementCost = ({ data }) => {
 
           <p className="element-EURO-3">
             <span className="text-wrapper-9">
-              286
+              {gastosMensuales2023}
               <br />
             </span>
 
