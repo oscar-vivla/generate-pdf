@@ -17,7 +17,10 @@ const App = () => {
   };
 
   if (pdfGenerator.isLoading) {
-    return <div className="loader" />;
+    return <div className="loader-overlay">
+      <div className='loader'></div>
+      <p> Generando PDFs, espere...</p>
+    </div>;
   }
 
   if (!excelData.data) {
@@ -32,7 +35,12 @@ const App = () => {
         pdfPreviews={excelData.pdfPreviews}
         onSelect={excelData.handleRowSelect}
         onSelectAll={excelData.handleSelectAll}
-        onGenerateAll={pdfGenerator.generateAndDownloadPDFs}
+        onGenerateAll={() => pdfGenerator.generateAndDownloadPDFs(
+          excelData.data,
+          excelData.selectedRows,
+          excelData.pdfPreviews,
+          excelData.setPdfPreviews
+        )}
         onGeneratePDF={handleGeneratePDF}
         onViewPDF={pdfGenerator.openPDFInNewTab}
         onDownloadPDF={pdfGenerator.downloadPDF}

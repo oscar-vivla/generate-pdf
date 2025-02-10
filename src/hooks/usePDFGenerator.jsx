@@ -39,6 +39,9 @@ export const usePDFGenerator = () => {
 
     const generatePage = useCallback(async (Component, props = {}) => {
         const tempDiv = document.createElement('div');
+        tempDiv.style.position = 'absolute';
+        tempDiv.style.left = '-9999px';
+        tempDiv.style.width = '1200px';
         document.body.appendChild(tempDiv);
         const root = ReactDOM.createRoot(tempDiv);
 
@@ -50,7 +53,16 @@ export const usePDFGenerator = () => {
             const canvas = await html2canvas(tempDiv, {
                 scale: 2,
                 useCORS: true,
-                logging: false
+                logging: false,
+                width: 1200,
+                height: tempDiv.offsetHeight,
+                windowWidth: 1200,
+                onclone: (clonedDoc) => {
+                    const clonedElement = clonedDoc.querySelector('div');
+                    if (clonedElement) {
+                        clonedElement.style.width = '1200px';
+                    }
+                }
             });
 
             return canvas;
@@ -65,21 +77,29 @@ export const usePDFGenerator = () => {
         try {
             const pdfDoc = await PDFDocument.create();
             // Generar páginas
-            const cover = await generatePage(Cover, { data: rowData });
-            const canvas1 = await generatePage(ElementCost, { data: rowData });
-            const canvas2 = await generatePage(MaintenanceCost);
+            // const cover = await generatePage(Cover, { data: rowData });
+            // const canvas1 = await generatePage(ElementCost, { data: rowData });
+            // const canvas2 = await generatePage(MaintenanceCost);
 
             // Añadir páginas al PDF
             const pages = [
-                { canvas: cover, title: 'Cover' },
-                { canvas: canvas1, title: 'ElementCost' },
-                { canvas: canvas2, title: 'MaintenanceCost' }
+                // { component: Cover, props: { data: rowData }, title: 'Cover' },
+                { component: ElementCost, props: { data: rowData }, title: 'ElementCost' },
+                { component: MaintenanceCost, props: {}, title: 'MaintenanceCost' }
             ];
 
-            for (const { canvas, title } of pages) {
+
+            for (const { component, props, title } of pages) {
+                const canvas = await generatePage(component, props);
                 const page = pdfDoc.addPage();
                 const { width, height } = page.getSize();
-                const img = await pdfDoc.embedPng(canvas.toDataURL('image/png'));
+
+                const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+                const arrayBuffer = await blob.arrayBuffer();
+                const img = await pdfDoc.embedPng(arrayBuffer);
+                // const page = pdfDoc.addPage();
+                // const { width, height } = page.getSize();
+                // const img = await pdfDoc.embedPng(canvas.toDataURL('image/png'));
 
                 page.drawImage(img, {
                     x: 0,
